@@ -21,7 +21,7 @@ jobs:
       run: ./remodel run convert.lua
       
     - name: Upload Converted File
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: converted-place
         path: "*.rbxl"
