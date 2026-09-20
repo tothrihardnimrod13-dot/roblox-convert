@@ -7,23 +7,22 @@ on:
 
 jobs:
   convert:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     
-    - name: Download Remodel
+    - name: Install Lune
       run: |
-        curl -L -o remodel.zip https://github.com/rojo-rbx/remodel/releases/download/v0.11.0/remodel-v0.11.0-linux-amd64.zip
-        unzip remodel.zip
-        chmod +x remodel
+        curl -L -o lune.zip https://github.com/lune-org/lune/releases/download/v0.10.5/lune-0.10.5-linux-amd64.zip
+        unzip lune.zip
+        chmod +x lune
         
     - name: Run Conversion
-      run: ./remodel run convert.lua
+      run: ./lune run convert.luau
       
     - name: Upload Converted File
       uses: actions/upload-artifact@v4
       with:
         name: converted-place
         path: "*.rbxl"
-        
         
